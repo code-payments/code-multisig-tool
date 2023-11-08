@@ -2,9 +2,11 @@
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/multisig-tool/assets/favicon-94b7a3ba.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Multisig Tool</title>
+    <script type="module" crossorigin src="/multisig-tool/assets/index-bad93d90.js"></script>
+    <link rel="stylesheet" href="/multisig-tool/assets/index-6691d456.css">
   </head>
   <body class="bg-slate-900">
     <div id="app"></div>
@@ -13,12 +15,8 @@
       window.global = window;
     </script>
 
-    <script type="module">
-      // Polyfill for Buffer, required by some dependencies
-      import { Buffer } from "buffer";
-      window.Buffer = Buffer;
-    </script>
+    
 
-    <script type="module" src="./index.js"></script>
+    
   </body>
 </html>
