@@ -1,11 +1,14 @@
 # Multisig Tool
 
-This is a tool to help you manage your multisig wallets. It is a web app that runs in your browser, and it does not send any data to a server. It is open source, and you can verify that it does not send any data to a server by inspecting the source code.
+This project originally began as an internal tool that was created to make working with raw multi-sig accounts a little easier. While other tools exist, they are more feature rich and sometimes use complicated on-chain programs. Our team needed something a little more bare-bones. The lack of custom on-chain programs makes this tool trivial to reason about.
+
+Before using the tool, we'd encourage you to review multi-sig concepts on the [official Solana docs](https://spl.solana.com/token#multisig-usage).
 
 https://code-wallet.github.io/multisig-tool/
 
 ![image](https://github.com/code-wallet/multisig-tool/assets/623790/651eda17-c76d-406a-89a8-c872a7dc9298)
 
+*Warning: This is not a consumer facing product, so while it is easier to use than the Solana CLI (Command-Line-Interface), it more or less replicates the features provided by the CLI.*
 
 ## Features
 
