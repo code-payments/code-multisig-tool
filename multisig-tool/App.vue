@@ -7,19 +7,14 @@ import {
   PageBuildCreateTokensTransaction,
   PageBuildSetAuthorityTransaction,
   PageBuildTransferTokensTransaction,
-  PageBuildLegacyTransferTransaction,
   PageCreateNewMint,
   PageCreateNewMultiSigAccount,
   PageCreateNewNonceAccount,
-//  PageFeePayer,
-//  PageHome,
   PageSignMultiSigTransaction,
   PageSubmitMultiSigTransaction,
 } from '../src/components';
 
 enum AppState {
-//  Landing,
-//  FeePage,
   ActionList,
 
   CreateNewMultiSigAccount,
@@ -31,7 +26,6 @@ enum AppState {
   BuildCreateTokensTransaction,
   BuildTransferTransaction,
   BuildSetAuthorityTransaction,
-  BuildLegacyTransferTransaction,
 
   SignMultiSigTransaction,
   SubmitMultiSigTransaction,
@@ -60,20 +54,7 @@ export default defineComponent({
     // Handle the back button
     window.addEventListener('popstate', (event) => {
       switch (appState.value) {
-        case AppState.CreateNewMultiSigAccount:
-        case AppState.CreateNewMintAccount:
-        case AppState.CreateNewNonceAccount:
-        case AppState.BuildTransferTransaction:
-        case AppState.BuildCreateTokensTransaction:
-        case AppState.BuildCreateMintMetadataTransaction:
-        case AppState.BuildUpdateMintMetadataTransaction:
-        case AppState.BuildSetAuthorityTransaction:
-        case AppState.SignMultiSigTransaction:
-        case AppState.SubmitMultiSigTransaction:
-          appState.value = AppState.ActionList;
-          break;
         default:
-          //appState.value = AppState.Landing;
           appState.value = AppState.ActionList;
           break;
       }
@@ -81,12 +62,10 @@ export default defineComponent({
 
 
     this.$bus.on('goto:home', () => {
-      //goto(AppState.Landing);
       goto(AppState.ActionList);
     });
 
     this.$bus.on('goto:feepage', () => {
-      //goto(AppState.FeePage)
       goto(AppState.ActionList);
     });
 
@@ -133,20 +112,11 @@ export default defineComponent({
     this.$bus.on('goto:submitmultisigtransaction', () => {
       goto(AppState.SubmitMultiSigTransaction);
     });
-
-    this.$bus.on('goto:buildlegacytransfertransaction', () => {
-      goto(AppState.BuildLegacyTransferTransaction);
-    });
-
   },
 
   methods: {
     activePage() {
       switch (appState.value) {
-      //  case AppState.Landing:
-      //    return PageHome;
-      //  case AppState.FeePage:
-      //    return PageFeePayer;
         case AppState.ActionList:
           return PageActionList;
         case AppState.CreateNewMultiSigAccount:
@@ -163,14 +133,11 @@ export default defineComponent({
           return PageBuildTransferTokensTransaction;
         case AppState.BuildSetAuthorityTransaction:
           return PageBuildSetAuthorityTransaction;
-        case AppState.BuildLegacyTransferTransaction:
-          return PageBuildLegacyTransferTransaction;
         case AppState.SignMultiSigTransaction:
           return PageSignMultiSigTransaction;
         case AppState.SubmitMultiSigTransaction:
           return PageSubmitMultiSigTransaction;
         default:
-        //  return PageHome;
           return PageActionList;
       }
     }
