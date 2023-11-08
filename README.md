@@ -6,7 +6,7 @@ Before using the tool, we'd encourage you to review multi-sig concepts on the [o
 
 https://code-wallet.github.io/multisig-tool/
 
-![image](https://github.com/code-wallet/multisig-tool/assets/623790/651eda17-c76d-406a-89a8-c872a7dc9298)
+![image](https://github.com/code-wallet/multisig-tool/assets/623790/093512c1-822a-4da8-8d9f-5e18e3f9ca94)
 
 *Warning: This is not a consumer facing product, so while it is easier to use than the Solana CLI (Command-Line-Interface), it more or less replicates the features provided by the CLI.*
 
@@ -33,7 +33,7 @@ The tool supports the following core features:
 
 The web app will attempt to parse transactions for you so that you have confidence in what you're signing. Additionally, a list of signers is shown with their current status.
 
-![image](https://github.com/code-wallet/multisig-tool/assets/623790/d777b1c9-5337-4f26-a970-9b5f8b97a46e)
+![image](https://github.com/code-wallet/multisig-tool/assets/623790/b1f45009-1c39-48f8-995a-94a7b158a94e)
 
 
 ## Quick Start
