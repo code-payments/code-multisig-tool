@@ -4,7 +4,7 @@ This is a tool to help you manage your multisig wallets. It is a web app that ru
 
 https://code-wallet.github.io/multisig-tool/
 
-![image](https://github.com/code-wallet/multisig-tool/assets/623790/448f7db4-07b5-4791-be29-59c3e998d39f)
+![image](https://github.com/code-wallet/multisig-tool/assets/623790/651eda17-c76d-406a-89a8-c872a7dc9298)
 
 
 ## Features
