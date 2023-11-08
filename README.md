@@ -1,6 +1,6 @@
 # Multisig Tool
 
-This project originally began as an internal tool that was created to make working with raw multi-sig accounts a little easier. While other tools exist, they are more feature rich and sometimes use complicated on-chain programs. Our team needed something a little more bare-bones. The lack of custom on-chain programs makes this tool trivial to reason about.
+This project started as an in-house resource designed to simplify the management of raw multi-sig accounts. Although other more sophisticated tools are available, they often incorporate complex on-chain programs. Our team required a more straightforward solution. The lack of custom on-chain programs makes this tool trivial to reason about.
 
 Before using the tool, we'd encourage you to review multi-sig concepts on the [official Solana docs](https://spl.solana.com/token#multisig-usage).
 
