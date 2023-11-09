@@ -14,6 +14,9 @@ export default {
     goToCreateNewMultiSigAccount() {
       this.$bus.emit('goto:createnewmultisigaccount');
     },
+    goToCreateNewTokenAccount() {
+      this.$bus.emit('goto:createnewtokenaccount');
+    },
     goToCreateNewMintAccount() {
       this.$bus.emit('goto:createnewmintaccount');
     },
@@ -41,9 +44,6 @@ export default {
     goToSubmitMultiSigTransaction() {
       this.$bus.emit('goto:submitmultisigtransaction');
     },
-    goToBuildLegacyTransferTransaction() {
-      this.$bus.emit('goto:buildlegacytransfertransaction');
-    }
   },
 }
 </script>
@@ -63,30 +63,30 @@ export default {
         <div class="mx-auto mt-20 pb-20 lg:pb-0">
           <dl class="text-left space-y-20 pb-20 lg:space-y-0 lg:pb-0 lg:grid lg:gap-y-16 lg:gap-x-8 lg:grid-cols-3">
             <div class="lg:mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt class="text-base leading-7 text-slate-400">Account Setup</dt>
+              <dt class="text-base leading-7 text-slate-400"><span class="text-4xl mr-5">1.</span>Account Setup</dt>
               <ul class="mt-2">
                 <li class="py-2"><Button variant="secondary" @click="goToCreateNewMultiSigAccount()">Create a new multi-sig account</Button></li>
+                <li class="py-2"><Button variant="secondary" @click="goToCreateNewTokenAccount()">Create a new token account</Button></li>
                 <li class="py-2"><Button variant="secondary" @click="goToCreateNewMintAccount()">Create a new mint account</Button></li>
                 <li class="py-2"><Button variant="secondary" @click="goToCreateNewNonceAccount()">Create a new nonce account</Button></li>
               </ul>
             </div>
 
             <div class="lg:mx-auto flex max-w-xs flex-col lg:gap-y-4 lg:border-l lg:border-white/10 lg:pl-6">
-              <dt class="text-base leading-7 text-slate-400">Build Transactions</dt>
+              <dt class="text-base leading-7 text-slate-400"><span class="text-4xl mr-5">2.</span>Multi-sig Action</dt>
               <ul class="mt-2">
-                <li class="py-2"><Button variant="secondary" @click="goToBuildCreateMintMetadataTransaction()">Assemble a <span class="uppercase text-xs">create_metadata</span> transaction</Button></li>
+                <li class="py-2"><Button variant="secondary" @click="goToBuildTransferTransaction()">Assemble a <span class="uppercase text-xs">transfer</span> transaction</Button></li>
                 <li class="py-2"><Button variant="secondary" @click="goToBuildCreateTokensTransaction()">Assemble a <span class="uppercase text-xs">mint_to</span> transaction</Button></li>
                 <li class="py-2"><Button variant="secondary" @click="goToBuildSetAuthorityTransaction()">Assemble a <span class="uppercase text-xs">set_authority</span> transaction</Button></li>
-                <li class="py-2"><Button variant="secondary" @click="goToBuildTransferTransaction()">Assemble a <span class="uppercase text-xs">transfer</span> transaction</Button></li>
-                <li class="py-2" v-if="false"><Button variant="secondary" @click="goToBuildLegacyTransferTransaction()">Assemble a MyKinWallet transaction</Button></li>
+                <li class="py-2"><Button variant="secondary" @click="goToBuildCreateMintMetadataTransaction()">Assemble a <span class="uppercase text-xs">create_metadata</span> transaction</Button></li>
               </ul>
             </div>
 
             <div class="lg:mx-auto flex max-w-xs flex-col lg:gap-y-4 lg:border-l lg:border-white/10 lg:pl-6">
-              <dt class="text-base leading-7 text-slate-400">Sign or Submit</dt>
+              <dt class="text-base leading-7 text-slate-400"><span class="text-4xl mr-5">3.</span>Sign or Submit</dt>
               <ul class="mt-2">
-                <li class="py-2"><Button variant="secondary" @click="goToSignMultiSigTransaction()">Sign a multi-sig transaction</Button></li>
-                <li class="py-2"><Button variant="secondary" @click="goToSubmitMultiSigTransaction()">Submit a multi-sig transaction</Button></li>
+                <li class="py-2"><Button variant="secondary" @click="goToSignMultiSigTransaction()">Sign a transaction</Button></li>
+                <li class="py-2"><Button variant="secondary" @click="goToSubmitMultiSigTransaction()">Submit a transaction</Button></li>
               </ul>
           </div>
         </dl>

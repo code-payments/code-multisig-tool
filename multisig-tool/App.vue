@@ -9,6 +9,7 @@ import {
   PageBuildTransferTokensTransaction,
   PageCreateNewMint,
   PageCreateNewMultiSigAccount,
+  PageNewCreateTokenAccount,
   PageCreateNewNonceAccount,
   PageSignMultiSigTransaction,
   PageSubmitMultiSigTransaction,
@@ -18,6 +19,7 @@ enum AppState {
   ActionList,
 
   CreateNewMultiSigAccount,
+  CreateNewTokenAccount,
   CreateNewMintAccount,
   CreateNewNonceAccount,
 
@@ -77,6 +79,10 @@ export default defineComponent({
       goto(AppState.CreateNewMultiSigAccount);
     });
 
+    this.$bus.on('goto:createnewtokenaccount', () => {
+      goto(AppState.CreateNewTokenAccount);
+    });
+
     this.$bus.on('goto:createnewmintaccount', () => {
       goto(AppState.CreateNewMintAccount);
     });
@@ -121,6 +127,8 @@ export default defineComponent({
           return PageActionList;
         case AppState.CreateNewMultiSigAccount:
           return PageCreateNewMultiSigAccount;
+        case AppState.CreateNewTokenAccount:
+          return PageNewCreateTokenAccount;
         case AppState.CreateNewMintAccount:
           return PageCreateNewMint;
         case AppState.CreateNewNonceAccount:

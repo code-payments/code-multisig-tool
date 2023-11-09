@@ -6,5 +6,6 @@ export { default as PageBuildTransferTokensTransaction } from './PageBuildTransf
 export { default as PageCreateNewMint } from './PageCreateNewMint.vue';
 export { default as PageCreateNewMultiSigAccount } from './PageCreateNewMultiSigAccount.vue';
 export { default as PageCreateNewNonceAccount } from './PageCreateNewNonceAccount.vue';
+export { default as PageNewCreateTokenAccount } from './PageCreateNewTokenAccount.vue';
 export { default as PageSignMultiSigTransaction } from './PageSignMultiSigTransaction.vue';
 export { default as PageSubmitMultiSigTransaction } from './PageSubmitMultiSigTransaction.vue';
