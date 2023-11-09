@@ -20,6 +20,10 @@ export function shortenPubkey(pubkey: PublicKey, len: number = 6): string {
   return `${address.substring(0, len)}...${address.substring(address.length - len)}`;
 }
 
+export function getReviewerLink(val: string) {
+  return `/multisig-tool/#${encodeURIComponent(val)}`;
+}
+
 export function getInspectorLinkWithoutSigs(tx: Transaction) {
     const message = tx.serializeMessage().toString('base64');
     return `https://explorer.solana.com/tx/inspector?message=${encodeURIComponent(encodeURIComponent(message))}\n`;

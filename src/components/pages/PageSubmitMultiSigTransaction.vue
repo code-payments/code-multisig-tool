@@ -3,6 +3,7 @@ import * as web3 from "@solana/web3.js";
 
 import { getProvider, getInspectorLinkWithoutSigs, shortenSignature } from '@/types';
 import { Button, Layout, } from '@/components';
+import { inject } from "vue";
 
 /*
 Submit Multi-sig Transaction:
@@ -19,6 +20,10 @@ export default {
     Button,
     Layout,
   },
+  setup() {
+    const providedTx = inject('tx', '');
+    return { providedTx };
+  },
   data() {
     return {
       transaction: "",
@@ -26,9 +31,7 @@ export default {
     }
   },
   mounted() {
-    this.transaction = "";
-
-    
+    this.transaction = this.providedTx; 
   },
   methods: {
     shorten(sig: string): string {
@@ -169,7 +172,7 @@ export default {
 
         <div class="mt-5 flex gap-4 justify-end">
           <Button variant="secondary" @click="onBack()">Go Back</Button>
-          <Button variant="secondary" v-if="transaction" :href="getInspectorLink(transaction)" target="_blank">Inspect Transaction</Button>
+          <Button variant="secondary" v-if="transaction" :href="getInspectorLink(transaction)" target="_blank">In Explorer</Button>
           <Button variant="primary" :disabled="!isValid()" @click="onConfirm()">Submit Transaction</Button>
         </div>
       </div>

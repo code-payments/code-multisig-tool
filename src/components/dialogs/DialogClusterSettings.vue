@@ -71,7 +71,7 @@ export default defineComponent({
                 </button>
               </div>
 
-              <h3 class="text-2xl font-medium leading-6 text-white mt-10">Fee Wallet</h3>
+              <h3 class="text-2xl font-medium leading-6 text-white mt-10">Connected Wallet</h3>
               <nav class="text-base mt-5 px-1">
                 <WalletMultiButton />
               </nav>

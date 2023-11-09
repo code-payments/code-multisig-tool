@@ -20,6 +20,7 @@
     "preview": "vite preview -c vite.multisig-tool.config.ts"
   },
   "dependencies": {
+    "@code-wallet/mnemonic": "^1.0.4",
     "@headlessui/vue": "^1.7.7",
     "@metaplex-foundation/js": "^0.18.3",
     "@metaplex-foundation/mpl-token-metadata": "^2.9.0",

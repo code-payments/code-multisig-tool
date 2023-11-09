@@ -4,7 +4,7 @@ import * as token from "@solana/spl-token";
 import { DataV2, createCreateMetadataAccountV2Instruction } from '@metaplex-foundation/mpl-token-metadata';
 import { findMetadataPda } from '@metaplex-foundation/js';
 
-import { getProvider, getAssociatedNonceKeypair, getInspectorLinkWithoutSigs, shortenSignature, getWallet } from '@/types';
+import { getProvider, getAssociatedNonceKeypair, shortenSignature, getWallet, getReviewerLink } from '@/types';
 import { Button, Layout } from '@/components';
 
 /*
@@ -181,7 +181,7 @@ export default {
           verifySignatures: false,
         }).toString('base64');
         
-        this.inspect = getInspectorLinkWithoutSigs(signed);
+        this.inspect = getReviewerLink(this.transaction);
       } catch (err) {
         console.log(err);
         this.$bus.emit('open:error', err);
@@ -268,7 +268,7 @@ export default {
 
         <div class="mt-5 flex gap-4 justify-end">
           <Button variant="secondary" @click="onBack()">Go Back</Button>
-          <Button :href="inspect" target="_blank">Inspect Transaction</Button>
+          <Button :href="inspect" target="_blank">Review Transaction</Button>
         </div>
       </div>
     </div>

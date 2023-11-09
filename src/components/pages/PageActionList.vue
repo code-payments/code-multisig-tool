@@ -38,6 +38,9 @@ export default {
     goToBuildSetAuthorityTransaction() {
       this.$bus.emit('goto:buildsetauthoritytransaction');
     },
+    goToReviewMultiSigTransaction() {
+      this.$bus.emit('goto:reviewmultisigtransaction');
+    },
     goToSignMultiSigTransaction() {
       this.$bus.emit('goto:signmultisigtransaction');
     },
@@ -50,7 +53,7 @@ export default {
 
 <template>
   <Layout :header="true">
-    <div class="mt-20">
+    <div class="mt-20 delay">
       <div class="mx-auto max-w-5xl">
 
         <p class="font-display text-4xl tracking-tight text-white">
@@ -85,6 +88,7 @@ export default {
             <div class="lg:mx-auto flex max-w-xs flex-col lg:gap-y-4 lg:border-l lg:border-white/10 lg:pl-6">
               <dt class="text-base leading-7 text-slate-400"><span class="text-4xl mr-5">3.</span>Sign or Submit</dt>
               <ul class="mt-2">
+                <li class="py-2"><Button variant="secondary" @click="goToReviewMultiSigTransaction()">Review a transaction</Button></li>
                 <li class="py-2"><Button variant="secondary" @click="goToSignMultiSigTransaction()">Sign a transaction</Button></li>
                 <li class="py-2"><Button variant="secondary" @click="goToSubmitMultiSigTransaction()">Submit a transaction</Button></li>
               </ul>
@@ -95,4 +99,21 @@ export default {
 
     </div>
   </div>
-</Layout></template>
+</Layout>
+</template>
+
+<style scoped>
+.delay {
+  animation: appear 500ms ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes appear {
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+</style>

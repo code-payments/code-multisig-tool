@@ -1,5 +1,5 @@
 <script lang="ts">
-import { ref, defineComponent } from 'vue';
+import { ref, defineComponent, provide } from 'vue';
 
 import { 
   PageActionList,
@@ -11,6 +11,7 @@ import {
   PageCreateNewMultiSigAccount,
   PageNewCreateTokenAccount,
   PageCreateNewNonceAccount,
+  PageReviewMultiSigTransaction,
   PageSignMultiSigTransaction,
   PageSubmitMultiSigTransaction,
 } from '../src/components';
@@ -29,15 +30,20 @@ enum AppState {
   BuildTransferTransaction,
   BuildSetAuthorityTransaction,
 
+  ReviewMultiSigTransaction,
   SignMultiSigTransaction,
   SubmitMultiSigTransaction,
 }
 
 const appState = ref(AppState.ActionList);
+const tx = ref('');
+
 
 export default defineComponent({
 
   setup() {
+    provide('tx', tx);
+
     return {
     };
   },
@@ -62,16 +68,8 @@ export default defineComponent({
       }
     });
 
-
-    this.$bus.on('goto:home', () => {
-      goto(AppState.ActionList);
-    });
-
-    this.$bus.on('goto:feepage', () => {
-      goto(AppState.ActionList);
-    });
-
     this.$bus.on('goto:actionlist', () => {
+      window.location.hash = '';
       goto(AppState.ActionList);
     });
 
@@ -111,13 +109,29 @@ export default defineComponent({
       goto(AppState.BuildSetAuthorityTransaction);
     });
 
-    this.$bus.on('goto:signmultisigtransaction', () => {
+    this.$bus.on('goto:reviewmultisigtransaction', (val: string) => {
+      tx.value = val;
+      goto(AppState.ReviewMultiSigTransaction);
+    });
+
+    this.$bus.on('goto:signmultisigtransaction', (val: string) => {
+      tx.value = val;
       goto(AppState.SignMultiSigTransaction);
     });
 
-    this.$bus.on('goto:submitmultisigtransaction', () => {
+    this.$bus.on('goto:submitmultisigtransaction', (val: string) => {
+      tx.value = val;
       goto(AppState.SubmitMultiSigTransaction);
     });
+
+    // Pull the transaction out of the URL hash if it exists
+    const hash = window.location.hash;
+    if (hash) {
+      console.log("hash: " + hash)
+      //this.$bus.emit('goto:reviewmultisigtransaction', decodeURIComponent(hash.substring(1)));
+      tx.value = decodeURIComponent(hash.substring(1));
+      appState.value = AppState.ReviewMultiSigTransaction;
+    }
   },
 
   methods: {
@@ -141,6 +155,8 @@ export default defineComponent({
           return PageBuildTransferTokensTransaction;
         case AppState.BuildSetAuthorityTransaction:
           return PageBuildSetAuthorityTransaction;
+        case AppState.ReviewMultiSigTransaction:
+          return PageReviewMultiSigTransaction;
         case AppState.SignMultiSigTransaction:
           return PageSignMultiSigTransaction;
         case AppState.SubmitMultiSigTransaction:
