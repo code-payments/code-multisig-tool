@@ -162,25 +162,30 @@ export default {
         return;
       }
 
-      const signers = this.getValidSigners(this.signers);
-      const mintAddress = new web3.PublicKey(this.mintAddress);
-      const updateAuthority = new web3.PublicKey(this.updateAuthority);
-      const signed = await buildCreateMetadataTransaction({
-        address: mintAddress,
-        tokenName: this.tokenName,
-        symbol: this.tokenSymbol,
-        metadata: this.metadataUri,
-        updateAuthority,
-      },
-      signers,
-      this.noncePassword);
+      try {
+        const signers = this.getValidSigners(this.signers);
+        const mintAddress = new web3.PublicKey(this.mintAddress);
+        const updateAuthority = new web3.PublicKey(this.updateAuthority);
+        const signed = await buildCreateMetadataTransaction({
+          address: mintAddress,
+          tokenName: this.tokenName,
+          symbol: this.tokenSymbol,
+          metadata: this.metadataUri,
+          updateAuthority,
+        },
+        signers,
+        this.noncePassword);
 
-      this.transaction = signed.serialize({
-        requireAllSignatures: false,
-        verifySignatures: false,
-      }).toString('base64');
-      
-      this.inspect = getInspectorLinkWithoutSigs(signed);
+        this.transaction = signed.serialize({
+          requireAllSignatures: false,
+          verifySignatures: false,
+        }).toString('base64');
+        
+        this.inspect = getInspectorLinkWithoutSigs(signed);
+      } catch (err) {
+        console.log(err);
+        this.$bus.emit('open:error', err);
+      }
 
     },
 

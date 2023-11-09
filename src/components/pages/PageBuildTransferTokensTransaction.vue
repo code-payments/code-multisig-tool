@@ -108,24 +108,29 @@ export default {
         return;
       }
 
-      const source = new web3.PublicKey(this.source);
-      const destination = new web3.PublicKey(this.destination);
+      try {
+        const source = new web3.PublicKey(this.source);
+        const destination = new web3.PublicKey(this.destination);
 
-      const signers = this.getValidSigners(this.signers);
-      const signed = await buildTransferTokensTransaction({
-        amount: this.amount,
-        source,
-        destination,
-      },
-      signers,
-      this.noncePassword);
+        const signers = this.getValidSigners(this.signers);
+        const signed = await buildTransferTokensTransaction({
+          amount: this.amount,
+          source,
+          destination,
+        },
+        signers,
+        this.noncePassword);
 
-      this.transaction = signed.serialize({
-        requireAllSignatures: false,
-        verifySignatures: false,
-      }).toString('base64');
-      
-      this.inspect = getInspectorLinkWithoutSigs(signed);
+        this.transaction = signed.serialize({
+          requireAllSignatures: false,
+          verifySignatures: false,
+        }).toString('base64');
+        
+        this.inspect = getInspectorLinkWithoutSigs(signed);
+      } catch (err) {
+        console.log(err);
+        this.$bus.emit('open:error', err);
+      }
 
     },
 
