@@ -198,6 +198,10 @@ export default {
           Your transaction to create a new multi-sig account has been submitted to the blockchain. Please check on it.
         </p>
 
+        <p class="mt-3 mb-2 text-lg tracking-tight text-slate-400">
+          Multi-sig: <a target="_blank" :href="`http://explorer.solana.com/address/${getPublicKeyFromHexKeypair(multiSigKeypair)}`" class="underline">{{ getPublicKeyFromHexKeypair(multiSigKeypair) }}</a>
+        </p>
+
         <div v-if="sigs.length > 0" class="mt-5">
           <ul role="list" class="space-y-9">
             <li>
@@ -248,15 +252,15 @@ export default {
             encoded public keys.
           </p>
           <textarea v-model="validSigners" type="text" rows="5"
-            class="mt-3 p-2 text-md tracking-tight text-slate-400 rounded-xl border border-slate-200 dark:border-slate-800 w-full bg-transparent outline-none" />
+            class="mt-3 p-2 text-md tracking-tight text-slate-400 rounded-xl border border-slate-200 dark:border-slate-800 w-full bg-transparent outline-none font-mono" />
 
           <h3 class="text-2xl font-medium leading-6 text-white mt-10">Multi-Sig Keypair (Hex)</h3>
           <p class="mt-3 text-sm text-slate-400">
             This will be the public key of the multi-sig account. You can use the pre-generated one below or use a
             vanity keypair by grinding for it.
           </p>
-          <textarea v-model="multiSigKeypair" type="text" rows="5"
-            class="mt-3 p-2 text-md tracking-tight text-slate-400 rounded-xl border border-slate-200 dark:border-slate-800 w-full bg-transparent outline-none" />
+          <input v-model="multiSigKeypair" type="text"
+            class="mt-3 p-2 text-md tracking-tight text-slate-400 rounded-xl border border-slate-200 dark:border-slate-800 w-full lg:w-1/4 bg-transparent outline-none" />
           <p class="mt-3 text-sm text-slate-400">
             <span class="font-bold">Multi-Sig PublicKey:</span> {{ getPublicKeyFromHexKeypair(multiSigKeypair) }}
           </p>
@@ -268,8 +272,7 @@ export default {
             account and a password.
           </p>
           <input v-model="noncePassword" type="text" rows="5"
-            class="mt-3 p-2 text-md tracking-tight text-slate-400 rounded-xl border border-slate-200 dark:border-slate-800 w-full bg-transparent outline-none" />
-
+            class="mt-3 p-2 text-md tracking-tight text-slate-400 rounded-xl border border-slate-200 dark:border-slate-800 w-full lg:w-1/4 bg-transparent outline-none" />
         </div>
 
         <div class="mt-5 flex gap-4 justify-end">

@@ -2,6 +2,7 @@
 import { Button } from '@/components';
 import { TransitionRoot, TransitionChild, Dialog, DialogPanel, DialogTitle, } from '@headlessui/vue'
 import { nextTick } from 'process';
+import { WalletMultiButton } from 'solana-wallets-vue';
 
 export default {
   components: {
@@ -11,7 +12,8 @@ export default {
     Dialog,
     DialogPanel,
     DialogTitle,
-  },
+    WalletMultiButton
+},
 
   props: {
     modelValue: Boolean,
@@ -32,6 +34,9 @@ export default {
         nextTick(() => {
             this.$bus.emit('open:settings');
         });
+    },
+    isConnectionError(message: any) {
+      return message.toString().includes("not connected");
     }
   }
 }
@@ -62,8 +67,12 @@ export default {
                     <p class="mt-10 rounded-md text-xs p-4 ring ring-gray-100 text-gray-800">Error: {{ errorMessage }}</p>
                 </div>
 
-                <div class="mt-10 flex justify-end ">
-                    <Button @click="settings()" variant="link">Settings</Button>
+                
+                <div v-if="isConnectionError(errorMessage)" class="flex justify-center mt-10">
+                  <WalletMultiButton />
+                </div>
+
+                <div class="mt-10 flex justify-end">
                     <Button @click="confirm()" variant="secondary">Continue</Button>
                 </div>
                 </DialogPanel>

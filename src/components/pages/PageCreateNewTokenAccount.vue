@@ -53,6 +53,7 @@ export default {
     return {
       mint: "",
       multisig: "",
+      address: "",
       sigs: [] as string[],
     }
   },
@@ -76,6 +77,7 @@ export default {
       try {
         const mint = new web3.PublicKey(this.mint);
         const multisig = new web3.PublicKey(this.multisig);
+        const ata = await token.getAssociatedTokenAddress(mint, multisig);
 
         const signed = await signNewAtaTx(
             mint,
@@ -92,6 +94,7 @@ export default {
 
         console.log('Transaction sent', sig);
 
+        this.address = ata.toBase58();
         this.sigs.push(sig);
       } catch (err) {
         console.log(err);
@@ -131,7 +134,11 @@ export default {
         </p>
 
         <p class="mt-3 mb-2 text-lg tracking-tight text-slate-400">
-          Your transaction to create a new mint account has been submitted to the blockchain. Please check on it.
+          Your transaction to create a new token account has been submitted to the blockchain. Please check on it.
+        </p>
+
+        <p class="mt-3 mb-2 text-lg tracking-tight text-slate-400">
+          Token Account: <a target="_blank" :href="`http://explorer.solana.com/address/${address}`" class="underline">{{ address }}</a>
         </p>
 
         <div v-if="sigs.length > 0" class="mt-5">

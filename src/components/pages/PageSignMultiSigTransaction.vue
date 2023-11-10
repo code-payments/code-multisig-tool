@@ -304,8 +304,7 @@ export default {
         </div>
 
         <div class="mt-5 flex gap-4 justify-end">
-          <Button variant="secondary" @click="onBack()">Go Back</Button>
-          <Button variant="secondary" v-if="transaction" :href="getInspectorLink(transaction)" target="_blank">In Explorer</Button>
+          <Button variant="secondary" @click="onBack()">Cancel</Button>
           <Button variant="primary" :disabled="!isValid()" @click="onConfirm()">Sign Transaction</Button>
         </div>
       </div>

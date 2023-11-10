@@ -241,7 +241,7 @@ export default {
             Use commas between base58 encoded public keys.
           </p>
           <textarea v-model="signers" type="text" rows="5"
-            class="mt-3 p-2 text-md tracking-tight text-slate-400 rounded-xl border border-slate-200 dark:border-slate-800 w-full bg-transparent outline-none" />
+            class="mt-3 p-2 text-md tracking-tight text-slate-400 rounded-xl border border-slate-200 dark:border-slate-800 w-full bg-transparent outline-none font-mono" />
 
           <h3 class="text-2xl font-medium leading-6 text-white mt-10">Nonce Password</h3>
           <p class="mt-3 text-sm text-slate-400">
