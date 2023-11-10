@@ -145,6 +145,16 @@ export default {
       this.$bus.emit('goto:actionlist');
     },
 
+    onMakeSeedPhrase() {
+      this.seed = mnemonic.MnemonicPhrase.generate(mnemonic.MnemonicType.Long).getPhrase();
+      this.path = defaultPath;
+    },
+
+    onMakeKeypair() {
+      const key = mnemonic.MnemonicPhrase.generate(mnemonic.MnemonicType.Long).toKeypair()
+      this.keypair = JSON.stringify([...key.privateKey, ...key.publicKey]);
+    },
+
     isValid() {
 
       if (!this.transaction) {
@@ -254,7 +264,7 @@ export default {
 
             <h3 class="text-lg font-medium leading-6 text-white mt-10">Seed Phrase</h3>
             <p class="mt-3 text-sm text-slate-400">
-              What is your 12 or 24 word seed phrase?
+              What is your 12 or 24 word seed phrase? Or <button @click="onMakeSeedPhrase()" class="underline">generate one</button>.
             </p>
             <textarea v-model="seed" class="w-full h-20 mt-5 p-3 text-sm text-slate-400 bg-slate-800 rounded-lg"></textarea>
 
@@ -272,11 +282,8 @@ export default {
 
           <div class="pl-5 border-l-4 border-slate-500" v-if="source == 'keypair'">
             <h3 class="text-2xl font-medium leading-6 text-white mt-10">Raw Keypair</h3>
-            <p class="mt-3 text-sm text-slate-400">
-              We hope you know what you're doing.
-            </p>
-            <p class="mt-10 text-sm text-slate-400">
-              What is your raw keypair (solana cli JSON file)? Usually, an array of integers.
+            <p class="mt-5 text-sm text-slate-400">
+              What is your raw keypair (solana cli JSON file)? Or <button @click="onMakeKeypair()" class="underline">generate one</button>.
             </p>
             <textarea v-model="keypair" class="w-full h-20 mt-5 p-3 text-sm text-slate-400 bg-slate-800 rounded-lg"></textarea>
 
