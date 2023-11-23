@@ -1,3 +1,5 @@
+![multisig](https://github.com/code-wallet/multisig-tool/assets/623790/c5d30267-6fb4-4782-8e2e-5e4b913f3a9a)
+
 # Multisig Tool
 
 This project started as an in-house resource designed to simplify the management of raw multi-sig accounts. Although other more sophisticated tools are available, they often incorporate complex on-chain programs. Our team required a more straightforward solution. The lack of custom on-chain programs makes this tool trivial to reason about.
