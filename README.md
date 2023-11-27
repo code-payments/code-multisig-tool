@@ -1,10 +1,11 @@
-![multisig](https://github.com/code-wallet/multisig-tool/assets/623790/c5d30267-6fb4-4782-8e2e-5e4b913f3a9a)
+![Code Multisig Tool](https://github.com/code-payments/code-multisig-tool/assets/623790/a378b0fe-6a95-4e1a-ae02-9b7bac6a8abb)
 
-# Multisig Tool
 
-This project started as an in-house resource designed to simplify the management of raw multi-sig accounts. Although other more sophisticated tools are available, they often incorporate complex on-chain programs. Our team required a more straightforward solution. The lack of custom on-chain programs makes this tool trivial to reason about.
+# Code Multisig Tool
 
-Before using the tool, we'd encourage you to review multi-sig concepts on the [official Solana docs](https://spl.solana.com/token#multisig-usage).
+This project started as an in-house resource designed to simplify the management of raw multisig accounts. Although other more sophisticated tools are available, they often incorporate complex on-chain programs. Our team required a more straightforward solution. The lack of custom on-chain programs makes this tool trivial to reason about.
+
+Before using the tool, we'd encourage you to review multisig concepts on the [official Solana docs](https://spl.solana.com/token#multisig-usage).
 
 https://code-wallet.github.io/multisig-tool/
 
@@ -17,7 +18,7 @@ https://code-wallet.github.io/multisig-tool/
 The tool supports the following core features:
 
 - Standard wallet adaptor (https://github.com/solana-labs/wallet-adapter)
-- No custom on-chain programs (vanilla token multi-sigs)
+- No custom on-chain programs (vanilla token multisigs)
 - Automatic `"associated"` durable nonce accounts
 
 ## Use-cases
