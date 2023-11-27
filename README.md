@@ -7,7 +7,7 @@ This project started as an in-house resource designed to simplify the management
 
 Before using the tool, we'd encourage you to review multisig concepts on the [official Solana docs](https://spl.solana.com/token#multisig-usage).
 
-https://code-wallet.github.io/multisig-tool/
+https://code-payments.github.io/code-multisig-tool/
 
 ![image](https://github.com/code-wallet/multisig-tool/assets/623790/093512c1-822a-4da8-8d9f-5e18e3f9ca94)
 
