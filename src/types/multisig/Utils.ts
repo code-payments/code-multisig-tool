@@ -21,7 +21,7 @@ export function shortenPubkey(pubkey: PublicKey, len: number = 6): string {
 }
 
 export function getReviewerLink(val: string) {
-  return `/multisig-tool/#${encodeURIComponent(val)}`;
+  return `/code-multisig-tool/#${encodeURIComponent(val)}`;
 }
 
 export function getInspectorLinkWithoutSigs(tx: Transaction) {

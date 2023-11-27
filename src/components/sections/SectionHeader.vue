@@ -32,7 +32,7 @@ window.addEventListener('scroll', () => {
     <header :class="classNames">
         <div class="mx-auto max-w-5xl flex flex-wrap items-center justify-between">
             <div class="relative flex flex-grow basis-0 items-center">
-                <a href="/multisig-tool/" class="text-white">
+                <a href="/code-multisig-tool/" class="text-white">
                     <Logo class="h-12 w-auto inline-block align-top pr-1" />
                     <span class="ml-2 text-xl font-bold tracking-tight md:inline-block hidden relative">
                         multi-sig<br>
