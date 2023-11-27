@@ -44,7 +44,7 @@ window.addEventListener('scroll', () => {
             <div class="relative flex basis-0 justify-end gap-4 flex-grow scale-80">
                 <Button @click="openClusterSettings" variant="secondary" class="opacity-80">Mainnet-Beta</Button>
 
-                <a class="group" aria-label="GitHub" href="https://github.com/code-wallet/multisig-tool/">
+                <a class="group" aria-label="GitHub" href="https://github.com/code-payments/code-multisig-tool/">
                     <svg aria-hidden="true" viewBox="0 0 16 16"
                         class="h-[2.5rem] w-[2.5rem] fill-slate-400 group-hover:fill-slate-500 dark:group-hover:fill-slate-300">
                         <path
