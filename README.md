@@ -4,7 +4,7 @@
 ![license][license-image]
 ![version][version-image]
 
-[version-image]: https://img.shields.io/badge/version-0.2.0-blue.svg?style=flat
+[version-image]: https://img.shields.io/badge/version-0.2.1-blue.svg?style=flat
 [license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
 
 This project started as an in-house resource designed to simplify the management of raw multisig accounts. Although other more sophisticated tools are available, they often incorporate complex on-chain programs. Our team required a more straightforward solution. The lack of custom on-chain programs makes this tool trivial to reason about.

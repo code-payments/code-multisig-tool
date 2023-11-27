@@ -1,7 +1,7 @@
 {
   "name": "multisig-tool",
   "private": true,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "main": "./dist/multisig-tool.umd.js",
   "module": "./dist/multisig-tool.mjs",
   "typings": "./dist/index.d.ts",
