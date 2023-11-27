@@ -1,7 +1,11 @@
-![Code Multisig Tool](https://github.com/code-payments/code-multisig-tool/assets/623790/a378b0fe-6a95-4e1a-ae02-9b7bac6a8abb)
-
+<img width="1280" alt="Code Multisig Tool" src="https://github.com/code-payments/code-multisig-tool/assets/623790/59536c69-7af3-4f92-955d-85ca2ceb485e">
 
 # Code Multisig Tool
+![license][license-image]
+![version][version-image]
+
+[version-image]: https://img.shields.io/badge/version-0.2.0-blue.svg?style=flat
+[license-image]: https://img.shields.io/badge/license-MIT-blue.svg?style=flat
 
 This project started as an in-house resource designed to simplify the management of raw multisig accounts. Although other more sophisticated tools are available, they often incorporate complex on-chain programs. Our team required a more straightforward solution. The lack of custom on-chain programs makes this tool trivial to reason about.
 
